@@ -2,7 +2,10 @@ package org.mine.collections;
 
 import java.text.MessageFormat;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Lists {
@@ -13,6 +16,15 @@ public class Lists {
         List<String> linkedList = new LinkedList<>();
         Set<String> set = new HashSet<>();
         Map<String, String> map = new HashMap<>();
+
+
+        Consumer<String> consumer = System.out::println;
+        Predicate<String> predicate = s -> true;
+        Supplier<String> supplier = () -> "hola hola como estas";
+
+        Set<String> treeSet = new TreeSet<>(Comparator.reverseOrder());
+
+        Vector<String> vector = new Vector<>();
 
         Arrays.stream(text.split(" "))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
